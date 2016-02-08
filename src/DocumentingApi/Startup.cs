@@ -10,15 +10,18 @@ namespace DocumentingApi
         public void ConfigureServices(IServiceCollection services)
         {
 			services.AddMvc();
+			services.AddSwaggerGen();
         }
 		
         public void Configure(IApplicationBuilder app)
         {
             app.UseIISPlatformHandler();
-
+			
+			app.UseSwaggerGen();
+			app.UseSwaggerUi();
 			app.UseMvcWithDefaultRoute();
 
-            app.Run(async (context) =>
+			app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
             });
