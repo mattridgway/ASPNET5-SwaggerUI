@@ -5,7 +5,9 @@ namespace DocumentingApi.Controllers
 {
 	public class HomeController : Controller
     {
-		public IEnumerable<string> Get()
+		[HttpGet]
+		[Route("api/v1/home")]
+		public IEnumerable<string> Get(int id)
 		{
 			return new string[] { "value", "value" };
 		}
