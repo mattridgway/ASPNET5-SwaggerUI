@@ -9,11 +9,14 @@ namespace DocumentingApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
+			services.AddMvc();
         }
 		
         public void Configure(IApplicationBuilder app)
         {
             app.UseIISPlatformHandler();
+
+			app.UseMvcWithDefaultRoute();
 
             app.Run(async (context) =>
             {
